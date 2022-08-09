@@ -1,14 +1,14 @@
-module AppModels
+module Spotting
 
 using Stipple
 
-export AppModel
+export Spotter
 
-@reactive mutable struct AppModel <: ReactiveModel
+@reactive mutable struct Spotter <: ReactiveModel
   message::R{String} = "Welcome to Proteus!"
 end
 
-function handlers(model::AppModel) :: AppModel
+function handlers(model::Spotter) :: Spotter
   #=
   on(model.message) do message
     model.isprocessing = true
