@@ -19,13 +19,13 @@ function initdf()
     outer=12)
 end
 
-function readdata(path="data/", filename="df.csv")
-  filepath = path * filename
+function readdata(path="data", filename="df.csv")
+  filepath = joinpath(path, filename)
   return DataFrame(CSV.File(filepath))
 end
 
-function writedata(data, path="data/", filename="df.csv")
-  filepath = path * filename
+function writedata(data, path="data", filename="df.csv")
+  filepath = joinpath(path, filename)
   CSV.write(filepath, data)
 end
 
