@@ -20,9 +20,14 @@ function initdf()
     outer=12)
 end
 
-function readdata(path="data", filename="df.csv")
+function readcsv(path="data", filename="df.csv")
   filepath = joinpath(path, filename)
   return DataFrame(CSV.File(filepath))
+end
+
+function readdata(path="data", filename="spotting.db")
+  filepath = joinpath(path, filename)
+  return SQLite.DB(filepath)
 end
 
 function writedata(data, path="data", filename="df.csv")
@@ -30,7 +35,12 @@ function writedata(data, path="data", filename="df.csv")
   CSV.write(filepath, data)
 end
 
-df = initdf()
+function writedata(data, db, tablename="df")
+  SQLite.load!(data, db, tablename)
+end
+
+df = readcsv()
+db = readdata()
 
 export Spotter
 
