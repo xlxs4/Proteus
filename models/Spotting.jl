@@ -4,6 +4,7 @@ using Stipple
 
 using CSV, DataFrames
 using Random: Xoshiro, randstring
+using SQLite
 
 const rng = Xoshiro(1234)
 
