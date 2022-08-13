@@ -16,8 +16,8 @@
     <div class="col">
         <div class="row">
             <div class="col col-12">
-                <h6>Title</h6>
-                <q-table v-model="data"></q-table>
+                <h6>96-well plate configuration</h6>
+                <q-table :columns="wells.columns_wells" :data="wells.data_wells"></q-table>
                 <div>Placeholder</div>
             </div>
         </div>Column 2 content
