@@ -3,7 +3,7 @@ module Spotting
 using Stipple
 using StippleUI
 
-using CSV, DataFrames
+using CSV, DataFrames, PrettyTables
 using Random: Xoshiro, randstring
 using SQLite
 
@@ -46,6 +46,11 @@ function writeio(data, dirname, filename)
     write(io, data)
   end
   return nothing
+end
+
+function tomarkdown(data)
+  conf = set_pt_conf(tf = tf_markdown, alignment = :c)
+  return pretty_table_with_conf(conf, String, data; header = names(data))
 end
 
 df = readcsv("data", "df.csv")
