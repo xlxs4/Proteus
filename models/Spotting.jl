@@ -41,6 +41,13 @@ function writecsv(data, dirname, filename)
   return nothing
 end
 
+function writeio(data, dirname, filename)
+  open(joinpath(dirname..., filename), "w") do io
+    write(io, data)
+  end
+  return nothing
+end
+
 df = readcsv("data", "df.csv")
 
 export Spotter
